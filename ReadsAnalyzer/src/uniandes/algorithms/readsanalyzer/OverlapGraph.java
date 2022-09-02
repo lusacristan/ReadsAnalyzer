@@ -25,7 +25,7 @@ public class OverlapGraph implements RawReadProcessor {
 
 	/**
 	 * Creates a new overlap graph with the given minimum overlap
-	 * @param minOverlap Minimum overlap
+	 * @param minOverlap Minimum overlap hola
 	 */
 	public OverlapGraph(int minOverlap) {
 		this.minOverlap = minOverlap;
