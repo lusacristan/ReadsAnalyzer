@@ -9,8 +9,7 @@ import java.util.Set;
 import htsjdk.samtools.util.RuntimeEOFException;
 import ngsep.math.Distribution;
 import ngsep.sequences.RawRead;
-import uniandes.algobc.structures.Gene;
-import uniandes.algobc.structures.Ontology;
+
 
 /**
  * Represents an overlap graph for a set of reads taken from a sequence to assemble
@@ -25,7 +24,7 @@ public class OverlapGraph implements RawReadProcessor {
 
 	/**
 	 * Creates a new overlap graph with the given minimum overlap
-	 * @param minOverlap Minimum overlap hola
+	 * @param minOverlap Minimum overlap hola, chao
 	 */
 	public OverlapGraph(int minOverlap) {
 		this.minOverlap = minOverlap;
