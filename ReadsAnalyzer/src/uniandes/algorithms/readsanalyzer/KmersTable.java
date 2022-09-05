@@ -1,5 +1,6 @@
 package uniandes.algorithms.readsanalyzer;
 
+import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.Set;
 
@@ -57,7 +58,16 @@ public class KmersTable implements RawReadProcessor {
 	 */
 	public Set<String> getDistinctKmers() {
 		// TODO Implementar metodo 
-		return null;
+		
+		Set<String> listaKmers = new HashSet<>();
+		
+		for (String kmers: tablaKmer.keySet()) {
+			
+			listaKmers.add(kmers);
+		
+		}
+		
+		return listaKmers;
 	}
 	
 	/**
