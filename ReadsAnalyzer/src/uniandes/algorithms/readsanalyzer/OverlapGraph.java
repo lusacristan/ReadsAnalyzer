@@ -100,7 +100,7 @@ int maximunOverlap = 0;
 		
 		
 		
-		for (int i = minOverlap; i<= sequence1.length()+1; i++) {
+		for (int i = minOverlap; i< sequence1.length()+1; i++) {
 			
 			String suffixes = sequence1.substring(sequence2.length() - 1, sequence2.length() +1);
 			
@@ -176,7 +176,22 @@ int maximunOverlap = 0;
 	 */
 	public int[] calculateOverlapDistribution() {
 		// TODO: Implementar metodo
+		int[] disOverlap = new int[500];
 		
+		for (Map.Entry<String, ArrayList<ReadOverlap>> entry : overlaps.entrySet() ) {
+			
+			ArrayList<ReadOverlap> successors = entry.getValue();
+			int cantidadSuccessors= successors.size();
+			
+			if (cantidadSuccessors < 499) {
+				
+				disOverlap[cantidadSuccessors]++;
+			}
+			
+			else {
+				disOverlap[500]++;
+			}
+		}
 		return null;
 	}
 	/**
