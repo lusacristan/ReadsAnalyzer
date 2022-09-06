@@ -97,6 +97,20 @@ public class OverlapGraph implements RawReadProcessor {
 	 */
 	private int getOverlapLength(String sequence1, String sequence2) {
 		// TODO Implementar metodo
+		
+		//		int maxOverlap = 0;
+		//for (int i = minOverlap; i<= sequence1.length()+1; i++ )
+		//{
+			//String sufijo = sequence1.substring(sequence2.length() - i, sequence2.length()+ 1);
+			//String prefijo = sequence2.substring(0, i);
+			//if (sufijo.equals(prefijo))
+			//{
+				//maxOverlap = i;
+			//
+			// System.out.print(i);
+		//}
+		
+		return maxOverlap;
 		return 0;
 	}
 
