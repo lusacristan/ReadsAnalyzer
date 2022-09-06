@@ -96,22 +96,23 @@ public class OverlapGraph implements RawReadProcessor {
 	 * @return int Maximum overlap between a prefix of sequence2 and a suffix of sequence 1
 	 */
 	private int getOverlapLength(String sequence1, String sequence2) {
-		// TODO Implementar metodo
+int maximunOverlap = 0;
 		
-		//		int maxOverlap = 0;
-		//for (int i = minOverlap; i<= sequence1.length()+1; i++ )
-		//{
-			//String sufijo = sequence1.substring(sequence2.length() - i, sequence2.length()+ 1);
-			//String prefijo = sequence2.substring(0, i);
-			//if (sufijo.equals(prefijo))
-			//{
-				//maxOverlap = i;
-			//
-			// System.out.print(i);
-		//}
 		
-		return maxOverlap;
-		return 0;
+		
+		for (int i = minOverlap; i<= sequence1.length()+1; i++) {
+			
+			String suffixes = sequence1.substring(sequence2.length() - 1, sequence2.length() +1);
+			
+			String prefixes = sequence2.substring(0,1);
+			
+			if(suffixes.equals(prefixes)) {
+				
+				maximunOverlap = i;
+			}
+		}
+			
+		return maximunOverlap;
 	}
 
 
@@ -150,20 +151,20 @@ public class OverlapGraph implements RawReadProcessor {
 	 */
 	public int[] calculateAbundancesDistribution() {
 		//TODO: Implementar metodo
-		int[] disAbundancia = new int[120];
+		int[] disAbundancia = new int[500];
 		disAbundancia[0] = 0;
 		
 		for (Map.Entry<String, Integer> entry : readCounts.entrySet() ) {
 			
 			int cantidad = entry.getValue();
 			
-			if (cantidad < 119) {
+			if (cantidad < 499) {
 				
 				disAbundancia[cantidad]++;
 			}
 			
 			else {
-				disAbundancia[120]++;
+				disAbundancia[500]++;
 			}
 		}
 		return null;

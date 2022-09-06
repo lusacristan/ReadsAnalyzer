@@ -36,7 +36,7 @@ public class KmersTable implements RawReadProcessor {
 		String sequence = read.getSequenceString();
 		
 		// TODO Implementar metodo. Calcular todos los k-mers del tamanho dado en la constructora y actualizar la abundancia de cada k-mer
-		//a la secuencia del read le sacamos el kmer si no existe el kmer en la tabla añadirño .. si existe actualizr abundancia 
+		//a la secuencia del read le sacamos el kmer si no existe el kmer en la tabla aï¿½adirï¿½o .. si existe actualizr abundancia 
 		for (int i = 0; i< sequence.length() - tamanoKmer + 1 ; i++) {
 			
 			String kmer = sequence.substring(i, tamanoKmer + i);
@@ -97,20 +97,20 @@ public class KmersTable implements RawReadProcessor {
 		// TODO Implementar metodo
 		//map entry   entrySet
 		
-		int[] disAbundancia = new int[120];
+		int[] disAbundancia = new int[500];
 		disAbundancia[0] = 0;
 		
 		for (Map.Entry<String, Integer> entry : tablaKmer.entrySet() ) {
 			
 			int cantidadKmer = entry.getValue();
 			
-			if (cantidadKmer < 119) {
+			if (cantidadKmer < 499) {
 				
 				disAbundancia[cantidadKmer]++;
 			}
 			
 			else {
-				disAbundancia[120]++;
+				disAbundancia[500]++;
 			}
 		}
 				
