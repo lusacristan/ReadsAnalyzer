@@ -1,7 +1,9 @@
 package uniandes.algorithms.readsanalyzer;
 
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Hashtable;
+import java.util.Map;
 import java.util.Set;
 
 import ngsep.sequences.RawRead;
@@ -11,7 +13,7 @@ import ngsep.sequences.RawRead;
  */
 public class KmersTable implements RawReadProcessor {
 	
-	Hashtable<String, Integer> tablaKmer;
+	HashMap<String, Integer> tablaKmer;
 	int tamanoKmer;
 	/**
 	 * Creates a new table with the given k-mer size
@@ -20,10 +22,9 @@ public class KmersTable implements RawReadProcessor {
 	public KmersTable(int kmerSize) {
 		
 		// TODO: Implementar metodo
-		tablaKmer = new Hashtable<>();
+		tablaKmer = new HashMap<>();
 		
 		tamanoKmer = kmerSize;
-		
 		
 	}
 
@@ -77,7 +78,14 @@ public class KmersTable implements RawReadProcessor {
 	 */
 	public int getAbundance(String kmer) {
 		// TODO Implementar metodo 
-		return 0;
+		
+		int abundancia = 0;
+		if (tablaKmer.containsKey(kmer)) {
+			
+			abundancia = tablaKmer.get(kmer);
+		}
+		
+		return abundancia;
 	}
 	
 	/**
@@ -87,6 +95,26 @@ public class KmersTable implements RawReadProcessor {
 	 */
 	public int[] calculateAbundancesDistribution() {
 		// TODO Implementar metodo
+		//map entry   entrySet
+		
+		int[] disAbundancia = new int[3000];
+		
+		for (Map.Entry<String, Integer> entry : tablaKmer.entrySet() ) {
+			
+			int cantidadKmer = entry.getValue();
+			
+			if (cantidadKmer < 2999) {
+				
+				disAbundancia[cantidadKmer]++;
+			}
+			
+			else {
+				disAbundancia[3000]++;
+			}
+		}
+		
+		
+		
 		return null;
 	}
 }
