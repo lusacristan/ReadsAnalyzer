@@ -135,7 +135,12 @@ public class OverlapGraph implements RawReadProcessor {
 	 */
 	public int getSequenceAbundance(String sequence) {
 		//TODO: Implementar metodo
-		return 0;
+		int abudance = 0;
+		if (readCounts.containsKey(sequence)) {
+			abudance = readCounts.get(sequence);
+		}
+		
+		return abudance;
 	}
 
 	/**
