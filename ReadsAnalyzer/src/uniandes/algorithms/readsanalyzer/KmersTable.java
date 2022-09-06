@@ -97,20 +97,20 @@ public class KmersTable implements RawReadProcessor {
 		// TODO Implementar metodo
 		//map entry   entrySet
 		
-		int[] disAbundancia = new int[500];
+		int[] disAbundancia = new int[100];
 		disAbundancia[0] = 0;
 		
 		for (Map.Entry<String, Integer> entry : tablaKmer.entrySet() ) {
 			
 			int cantidadKmer = entry.getValue();
 			
-			if (cantidadKmer < 499) {
+			if (cantidadKmer < 99) {
 				
 				disAbundancia[cantidadKmer]++;
 			}
 			
 			else {
-				disAbundancia[500]++;
+				disAbundancia[100]++;
 			}
 		}
 				
