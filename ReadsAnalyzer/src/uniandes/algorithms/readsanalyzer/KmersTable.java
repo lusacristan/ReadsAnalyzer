@@ -112,9 +112,7 @@ public class KmersTable implements RawReadProcessor {
 				disAbundancia[3000]++;
 			}
 		}
-		
-		
-		
-		return null;
+				
+		return disAbundancia;
 	}
 }

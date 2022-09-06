@@ -108,6 +108,11 @@ public class OverlapGraph implements RawReadProcessor {
 	 */
 	public Set<String> getDistinctSequences() {
 		//TODO: Implementar metodo
+		
+		Set<String> listaSecuencias = new HashSet<>();
+		
+		for (String secuencias = read, )
+		
 		return null;
 	}
 
