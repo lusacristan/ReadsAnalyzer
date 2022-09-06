@@ -150,6 +150,22 @@ public class OverlapGraph implements RawReadProcessor {
 	 */
 	public int[] calculateAbundancesDistribution() {
 		//TODO: Implementar metodo
+		int[] disAbundancia = new int[120];
+		disAbundancia[0] = 0;
+		
+		for (Map.Entry<String, Integer> entry : readCounts.entrySet() ) {
+			
+			int cantidad = entry.getValue();
+			
+			if (cantidad < 119) {
+				
+				disAbundancia[cantidad]++;
+			}
+			
+			else {
+				disAbundancia[120]++;
+			}
+		}
 		return null;
 	}
 	/**
@@ -159,6 +175,7 @@ public class OverlapGraph implements RawReadProcessor {
 	 */
 	public int[] calculateOverlapDistribution() {
 		// TODO: Implementar metodo
+		
 		return null;
 	}
 	/**
@@ -167,6 +184,7 @@ public class OverlapGraph implements RawReadProcessor {
 	 */
 	public String getSourceSequence () {
 		// TODO Implementar metodo recorriendo las secuencias existentes y buscando una secuencia que no tenga predecesores
+		
 		return null;
 	}
 
