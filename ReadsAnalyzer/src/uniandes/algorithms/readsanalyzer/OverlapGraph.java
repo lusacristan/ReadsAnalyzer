@@ -75,7 +75,7 @@ public class OverlapGraph implements RawReadProcessor {
 			if (length1 > 0) {
 				ReadOverlap overlap= new ReadOverlap(sequence,sequence2,length1);
 				secuenciasPrefijo.add(overlap);
-			 
+
 			}	
 
 			if (length2 > 0)
@@ -83,7 +83,7 @@ public class OverlapGraph implements RawReadProcessor {
 				ReadOverlap overlap2= new ReadOverlap(sequence2,sequence,length2);
 				ArrayList<ReadOverlap> secuenciasPrefijo2 = overlaps.get(sequence2);
 				secuenciasPrefijo2.add(overlap2);
-				
+
 			}
 		}
 		overlaps.put(sequence, secuenciasPrefijo);
@@ -108,12 +108,10 @@ public class OverlapGraph implements RawReadProcessor {
 	 */
 	public Set<String> getDistinctSequences() {
 		//TODO: Implementar metodo
+
+		Set<String> listaSecuencias = overlaps.keySet();
 		
-		Set<String> listaSecuencias = new HashSet<>();
-		
-		for (String secuencias = read, )
-		
-		return null;
+		return listaSecuencias;
 	}
 
 	/**
