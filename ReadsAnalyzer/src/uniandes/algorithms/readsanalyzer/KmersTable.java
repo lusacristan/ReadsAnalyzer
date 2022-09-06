@@ -98,6 +98,7 @@ public class KmersTable implements RawReadProcessor {
 		//map entry   entrySet
 		
 		int[] disAbundancia = new int[3000];
+		disAbundancia[0] = 0;
 		
 		for (Map.Entry<String, Integer> entry : tablaKmer.entrySet() ) {
 			
