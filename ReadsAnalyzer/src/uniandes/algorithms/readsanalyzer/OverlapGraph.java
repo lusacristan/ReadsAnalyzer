@@ -164,7 +164,7 @@ int maximunOverlap = 0;
 			}
 			
 			else {
-				disAbundancia[500]++;
+				disAbundancia[499]++;
 			}
 		}
 		return null;
@@ -189,7 +189,7 @@ int maximunOverlap = 0;
 			}
 			
 			else {
-				disOverlap[500]++;
+				disOverlap[499]++;
 			}
 		}
 		return null;
