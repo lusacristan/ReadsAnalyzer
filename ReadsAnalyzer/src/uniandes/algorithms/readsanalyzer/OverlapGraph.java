@@ -96,7 +96,7 @@ public class OverlapGraph implements RawReadProcessor {
 	 * @return int Maximum overlap between a prefix of sequence2 and a suffix of sequence 1
 	 */
 	private int getOverlapLength(String sequence1, String sequence2) {
-int maximunOverlap = 0;
+		int maximunOverlap = 0;
 		
 		
 		
