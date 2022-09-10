@@ -48,6 +48,10 @@ public class SimpleReadsSimulator {
 			// en la cadena sequence. Extraer la lectura de tamanho readLength e imprimirla en formato fastq.
 			// Utilizar la cadena fixedQSStr para generar calidades fijas para el formato
 			
+			Random ran = new Random();
+			int posicion= ran.nextInt(1,sequence.length());
+			
+
 			
 		}
 	}
