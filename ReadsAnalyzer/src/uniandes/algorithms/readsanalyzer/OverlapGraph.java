@@ -102,9 +102,9 @@ public class OverlapGraph implements RawReadProcessor {
 		
 		for (int i = minOverlap; i< sequence1.length()+1; i++) {
 			
-			String suffixes = sequence1.substring(sequence2.length() - 1, sequence2.length() +1);
+			String suffixes = sequence1.substring(sequence1.length() - i, sequence1.length());
 			
-			String prefixes = sequence2.substring(0,1);
+			String prefixes = sequence2.substring(0,i);
 			
 			if(suffixes.equals(prefixes)) {
 				
