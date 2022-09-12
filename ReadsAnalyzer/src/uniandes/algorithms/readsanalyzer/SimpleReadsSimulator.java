@@ -53,13 +53,13 @@ public class SimpleReadsSimulator {
 				
 				int posicionInicio= random.nextInt(0,seqLength - readLength);
 				
-				String read = sequence.substring(posicionInicio,posicionInicio +readLength);
+				String read = sequence.substring(posicionInicio,posicionInicio+readLength);
 				
 								
 				out.println("@id"+i);
 				out.println(read);
 				out.println("+");
-				out.println(fixedQS);
+				out.println(fixedQSStr);
 				
 
 			}
