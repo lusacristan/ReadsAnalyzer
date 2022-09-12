@@ -175,20 +175,20 @@ public class OverlapGraph implements RawReadProcessor {
 	 */
 	public int[] calculateOverlapDistribution() {
 		// TODO: Implementar metodo
-		int[] disOverlap = new int[300];
+		int[] disOverlap = new int[200];
 		
 		for (Map.Entry<String, ArrayList<ReadOverlap>> entry : overlaps.entrySet() ) {
 			
 			ArrayList<ReadOverlap> successors = entry.getValue();
 			int cantidadSuccessors= successors.size();
 			
-			if (cantidadSuccessors < 299) {
+			if (cantidadSuccessors < 199) {
 				
 				disOverlap[cantidadSuccessors]++;
 			}
 			
 			else {
-				disOverlap[299]++;
+				disOverlap[199]++;
 			}
 		}
 		return disOverlap;
