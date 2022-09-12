@@ -29,7 +29,7 @@ public class SimpleReadsSimulator {
 		int readLength = Integer.parseInt(args[1]);
 		int numReads = Integer.parseInt(args[2]);
 		String outFile = args[3];
-		String error= args[4];
+		
 		FastaSequencesHandler handler = new FastaSequencesHandler();
 		handler.setSequenceType(StringBuilder.class);
 		QualifiedSequenceList sequences = handler.loadSequences(filename);
@@ -43,7 +43,7 @@ public class SimpleReadsSimulator {
 		char [] fixedQS = new char [readLength];
 		Arrays.fill(fixedQS, '5');
 		String fixedQSStr = new String(fixedQS);
-		long time = System.currentTimeMillis();
+
 		Random random = new Random();
 
 		try (PrintStream out = new PrintStream(outFile)){
@@ -52,27 +52,25 @@ public class SimpleReadsSimulator {
 			// Utilizar la cadena fixedQSStr para generar calidades fijas para el formato
 
 			int i= 0;
-			while (i<= numReads) {
+			while (i < numReads) {
 				
 				int posicionInicio= random.nextInt(0,seqLength - readLength);
 				
 				String read = sequence.substring(posicionInicio,posicionInicio+readLength);
 				
+				String idReads ="read_"+i;
+				
 								
-				out.println("@id"+i);
+				out.println("@id"+ idReads);
 				out.println(read);
 				out.println("+");
 				out.println(fixedQSStr);
-				
+				i++;
 
 			}
 
 
-
-
 		}
-		time = System.currentTimeMillis()-time;
-	time = System.currentTimeMillis()-time;
-	System.out.println("Time assembling sequence(ms): "+time);
+	
 	}
 }
