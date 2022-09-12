@@ -21,6 +21,7 @@ public class SimpleReadsSimulator {
 	 * args[1]: Length of the reads to simulate
 	 * args[2]: Number of reads to simulate
 	 * args[3]: Path to the output file
+	 * args[4]: Simulation error
 	 * @throws Exception If the fasta file can not be loaded
 	 */
 	public static void main(String[] args) throws Exception {
@@ -28,6 +29,7 @@ public class SimpleReadsSimulator {
 		int readLength = Integer.parseInt(args[1]);
 		int numReads = Integer.parseInt(args[2]);
 		String outFile = args[3];
+		String error= args[4];
 		FastaSequencesHandler handler = new FastaSequencesHandler();
 		handler.setSequenceType(StringBuilder.class);
 		QualifiedSequenceList sequences = handler.loadSequences(filename);
@@ -41,6 +43,7 @@ public class SimpleReadsSimulator {
 		char [] fixedQS = new char [readLength];
 		Arrays.fill(fixedQS, '5');
 		String fixedQSStr = new String(fixedQS);
+		long time = System.currentTimeMillis();
 		Random random = new Random();
 
 		try (PrintStream out = new PrintStream(outFile)){
@@ -68,5 +71,8 @@ public class SimpleReadsSimulator {
 
 
 		}
+		time = System.currentTimeMillis()-time;
+	time = System.currentTimeMillis()-time;
+	System.out.println("Time assembling sequence(ms): "+time);
 	}
 }
