@@ -234,8 +234,6 @@ public class OverlapGraph implements RawReadProcessor {
 		}
 		
 		return sourceSequence;
-		
-		return null;
 	}
 
 	/**
