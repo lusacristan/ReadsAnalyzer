@@ -150,23 +150,23 @@ public class OverlapGraph implements RawReadProcessor {
 	 */
 	public int[] calculateAbundancesDistribution() {
 		//TODO: Implementar metodo
-		int[] disAbundancia = new int[500];
+		int[] disAbundancia = new int[400];
 		disAbundancia[0] = 0;
 		
 		for (Map.Entry<String, Integer> entry : readCounts.entrySet() ) {
 			
 			int cantidad = entry.getValue();
 			
-			if (cantidad < 499) {
+			if (cantidad < 399) {
 				
 				disAbundancia[cantidad]++;
 			}
 			
 			else {
-				disAbundancia[499]++;
+				disAbundancia[399]++;
 			}
 		}
-		return null;
+		return disAbundancia;
 	}
 	/**
 	 * Calculates the distribution of number of successors
@@ -175,23 +175,23 @@ public class OverlapGraph implements RawReadProcessor {
 	 */
 	public int[] calculateOverlapDistribution() {
 		// TODO: Implementar metodo
-		int[] disOverlap = new int[500];
+		int[] disOverlap = new int[400];
 		
 		for (Map.Entry<String, ArrayList<ReadOverlap>> entry : overlaps.entrySet() ) {
 			
 			ArrayList<ReadOverlap> successors = entry.getValue();
 			int cantidadSuccessors= successors.size();
 			
-			if (cantidadSuccessors < 499) {
+			if (cantidadSuccessors < 399) {
 				
 				disOverlap[cantidadSuccessors]++;
 			}
 			
 			else {
-				disOverlap[499]++;
+				disOverlap[399]++;
 			}
 		}
-		return null;
+		return disOverlap;
 	}
 	/**
 	 * Predicts the leftmost sequence of the final assembly for this overlap graph
