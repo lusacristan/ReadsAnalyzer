@@ -42,25 +42,31 @@ public class SimpleReadsSimulator {
 		Arrays.fill(fixedQS, '5');
 		String fixedQSStr = new String(fixedQS);
 		Random random = new Random();
-		
+
 		try (PrintStream out = new PrintStream(outFile)){
 			// TODO: Generar lecturas aleatorias. Utilizar el objeto random para generar una posicion aleatoria de inicio
 			// en la cadena sequence. Extraer la lectura de tamanho readLength e imprimirla en formato fastq.
 			// Utilizar la cadena fixedQSStr para generar calidades fijas para el formato
-			
-		Random ran = new Random();
-		int i= 0;
-		while (i<= numReads) {
-			int posicionInicio= ran.nextInt(1,seqLength);
-			String read = sequence.substring(posicionInicio,posicionInicio +readLength);
-			
-			//guardar esa secuencia en algun doc o algo
-			
-		}
-			
-			
 
-			
+			int i= 0;
+			while (i<= numReads) {
+				
+				int posicionInicio= random.nextInt(0,seqLength - readLength);
+				
+				String read = sequence.substring(posicionInicio,posicionInicio +readLength);
+				
+								
+				out.println("@id"+i);
+				out.println(read);
+				out.println("+");
+				out.println(fixedQS);
+				
+
+			}
+
+
+
+
 		}
 	}
 }
