@@ -77,13 +77,12 @@ public class OverlapGraph implements RawReadProcessor {
 				secuenciasPrefijo.add(overlap);
 
 			}	
-
-			if (length2 > 0)
-			{
+			if (overlaps.containsKey(sequence2)) {
+				if (length2 > 0) {
 				ReadOverlap overlap2= new ReadOverlap(sequence2,sequence,length2);
 				ArrayList<ReadOverlap> secuenciasPrefijo2 = overlaps.get(sequence2);
 				secuenciasPrefijo2.add(overlap2);
-
+			}
 			}
 		}
 		overlaps.put(sequence, secuenciasPrefijo);
