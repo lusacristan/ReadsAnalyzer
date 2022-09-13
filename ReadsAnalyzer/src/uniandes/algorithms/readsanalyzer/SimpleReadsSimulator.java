@@ -29,7 +29,7 @@ public class SimpleReadsSimulator {
 		int readLength = Integer.parseInt(args[1]);
 		int numReads = Integer.parseInt(args[2]);
 		String outFile = args[3];
-		
+		double tasaError = Double.parseDouble(args[4]);
 		FastaSequencesHandler handler = new FastaSequencesHandler();
 		handler.setSequenceType(StringBuilder.class);
 		QualifiedSequenceList sequences = handler.loadSequences(filename);
@@ -43,13 +43,22 @@ public class SimpleReadsSimulator {
 		char [] fixedQS = new char [readLength];
 		Arrays.fill(fixedQS, '5');
 		String fixedQSStr = new String(fixedQS);
-
 		Random random = new Random();
+		
+		//Mejorar el script reads simulator incluyendo un parámetro nuevo que permita simular una tasa de error aleatoria. 
+		//Simular datos con un tamaño de lectura de 50bp y
+		//profundidad promedio de 20X. Visualizar y comparar la distribución de abundancia de k-mers en cada caso
+		
+		
 
 		try (PrintStream out = new PrintStream(outFile)){
 			// TODO: Generar lecturas aleatorias. Utilizar el objeto random para generar una posicion aleatoria de inicio
 			// en la cadena sequence. Extraer la lectura de tamanho readLength e imprimirla en formato fastq.
 			// Utilizar la cadena fixedQSStr para generar calidades fijas para el formato
+			
+			//TODO:Mejorar el script reads simulator incluyendo un parámetro nuevo que permita simular una tasa de error aleatoria. 
+			//Simular datos con un tamaño de lectura de 50bp y
+			//profundidad promedio de 20X. Visualizar y comparar la distribución de abundancia de k-mers en cada caso
 
 			int i= 0;
 			while (i < numReads) {
@@ -57,6 +66,24 @@ public class SimpleReadsSimulator {
 				int posicionInicio= random.nextInt(0,seqLength - readLength);
 				
 				String read = sequence.substring(posicionInicio,posicionInicio+readLength);
+				
+				for (int e = 0; e <readLength; e++) {
+					
+					double errorAleatorio = Math.random();
+					
+					if( tasaError > errorAleatorio)
+					{
+						String inicioSec = read.substring(0, e);
+						String finalSec = read.substring(e+1, readLength);
+						
+						
+						
+						
+						
+					}
+					
+				}
+					
 				
 				String idReads ="read_"+i;
 				
