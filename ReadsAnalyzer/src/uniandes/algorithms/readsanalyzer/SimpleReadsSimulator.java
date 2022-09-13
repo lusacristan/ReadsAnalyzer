@@ -19,8 +19,7 @@ public class SimpleReadsSimulator {
 	 * @param args Array of arguments:
 	 * args[0]: Source sequence in fasta format. If many sequences are present, it only takes the first sequence
 	 * args[1]: Length of the reads to simulate
-	 * HICIMOS UN CAMBIO
-	 * args[2]: Coverage
+	 * args[2]: Number of reads to simulate
 	 * args[3]: Path to the output file
 	 * args[4]: Simulation error
 	 * @throws Exception If the fasta file can not be loaded
@@ -28,12 +27,9 @@ public class SimpleReadsSimulator {
 	public static void main(String[] args) throws Exception {
 		String filename = args[0];
 		int readLength = Integer.parseInt(args[1]);
-		int coverage = Integer.parseInt(args[2]);
+		int numReads = Integer.parseInt(args[2]);
 		String outFile = args[3];
-<<<<<<< HEAD
 		double tasaError = Double.parseDouble(args[4]);
-=======
->>>>>>> branch 'master' of https://github.com/lusacristan/ReadsAnalyzer.git
 		FastaSequencesHandler handler = new FastaSequencesHandler();
 		handler.setSequenceType(StringBuilder.class);
 		QualifiedSequenceList sequences = handler.loadSequences(filename);
@@ -42,10 +38,8 @@ public class SimpleReadsSimulator {
 		String sequence = seq.getCharacters().toString();
 		int seqLength = sequence.length();
 		System.out.println("Length of the sequence to simulate reads: "+seqLength);
-		//Calculamos numero de reads a partir del argumento coverage
-		int numReads = (coverage*seqLength)/readLength;
 		double averageRD = ((double)numReads*readLength)/seqLength;
-		System.out.println("Expected average Read Depth: "+averageRD);
+		System.out.println("Expected average RD: "+averageRD);
 		char [] fixedQS = new char [readLength];
 		Arrays.fill(fixedQS, '5');
 		String fixedQSStr = new String(fixedQS);
@@ -69,24 +63,31 @@ public class SimpleReadsSimulator {
 			int i= 0;
 			while (i < numReads) {
 				
-				int posicionInicio= random.nextInt(0,seqLength - readLength);
+				int posicionInicio= random.nextInt(0,seqLength - readLength +1);
 				
 				String read = sequence.substring(posicionInicio,posicionInicio+readLength);
+				
+				char[] nucleotidos = {'A', 'G', 'C','T'};
 				
 				for (int e = 0; e <readLength; e++) {
 					
 					double errorAleatorio = Math.random();
+					int aleatorio = random.nextInt(4);
 					
-					if( tasaError > errorAleatorio)
-					{
-						String inicioSec = read.substring(0, e);
-						String finalSec = read.substring(e+1, readLength);
+					while (read.charAt(e)!=nucleotidos[aleatorio]){
 						
-						
-						
-						
+						aleatorio = random.nextInt(4);
+					}
+					
+					if (tasaError > errorAleatorio){
 						
 					}
+					
+					String inicioSec = read.substring(0, e);
+					String finalSec = read.substring(e+1, readLength);
+					
+					read = inicioSec + nucleotidos[aleatorio] + finalSec;
+					
 					
 				}
 					
