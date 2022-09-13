@@ -19,7 +19,8 @@ public class SimpleReadsSimulator {
 	 * @param args Array of arguments:
 	 * args[0]: Source sequence in fasta format. If many sequences are present, it only takes the first sequence
 	 * args[1]: Length of the reads to simulate
-	 * args[2]: Number of reads to simulate
+	 * HICIMOS UN CAMBIO
+	 * args[2]: Coverage
 	 * args[3]: Path to the output file
 	 * args[4]: Simulation error
 	 * @throws Exception If the fasta file can not be loaded
@@ -27,9 +28,12 @@ public class SimpleReadsSimulator {
 	public static void main(String[] args) throws Exception {
 		String filename = args[0];
 		int readLength = Integer.parseInt(args[1]);
-		int numReads = Integer.parseInt(args[2]);
+		int coverage = Integer.parseInt(args[2]);
 		String outFile = args[3];
+<<<<<<< HEAD
 		double tasaError = Double.parseDouble(args[4]);
+=======
+>>>>>>> branch 'master' of https://github.com/lusacristan/ReadsAnalyzer.git
 		FastaSequencesHandler handler = new FastaSequencesHandler();
 		handler.setSequenceType(StringBuilder.class);
 		QualifiedSequenceList sequences = handler.loadSequences(filename);
@@ -38,8 +42,10 @@ public class SimpleReadsSimulator {
 		String sequence = seq.getCharacters().toString();
 		int seqLength = sequence.length();
 		System.out.println("Length of the sequence to simulate reads: "+seqLength);
+		//Calculamos numero de reads a partir del argumento coverage
+		int numReads = (coverage*seqLength)/readLength;
 		double averageRD = ((double)numReads*readLength)/seqLength;
-		System.out.println("Expected average RD: "+averageRD);
+		System.out.println("Expected average Read Depth: "+averageRD);
 		char [] fixedQS = new char [readLength];
 		Arrays.fill(fixedQS, '5');
 		String fixedQSStr = new String(fixedQS);
